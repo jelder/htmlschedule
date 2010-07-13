@@ -2,17 +2,23 @@
 require 'yaml'
 require 'pp'
 require 'erb'
+require 'fileutils'
 
 config = YAML::load(File.open("config.yml"))
 
 SUFFIX = ".html"
+DOCROOT = "docroot"
+
+FileUtils.mkdir DOCROOT unless File.exists? DOCROOT
 
 # Build a simple {duration,url,name} array from the more expressive configuration file.
 schedule = []
 config["schedule"].each do |slot|
+    url = slot["swf"]
+    url += "?" + slot["params"].map {|k,v| "#{k}=#{v}"}.sort.join("&") if slot.has_key? "params"
     schedule << {
         :name => slot["name"],
-        :url => config["url"] + "?" + slot["params"].map {|k,v| "#{k}=#{v}"}.sort.join("&"),
+        :url => url, 
         :duration => slot["duration"]
     }
 end
@@ -26,7 +32,7 @@ schedule.size.times do |slot|
     @url = schedule[slot][:url] 
     @next = schedule[next_slot][:name] + SUFFIX 
     template = ERB.new(IO.read(config["template"]), 0, '%<>')
-    target = File.new(File.join("html",@name + SUFFIX), "w") 
+    target = File.new(File.join(DOCROOT,@name + SUFFIX), "w") 
     target.write(template.result)
 end
 

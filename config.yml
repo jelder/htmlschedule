@@ -1,27 +1,32 @@
 # Simple HTML schedule generator
 template: "template.html.erb"
-url: "http://flash.locamoda.com/fuji/wiffiti/wiffiti-4.7.2.swf"
 params: &defaults
+    swf: "http://flash.locamoda.com/fuji/wiffiti/wiffiti-4.7.2.swf"
     show_title: 0
+    duration: 30
 
 schedule:
   - name: restaurant
+    <<: *defaults
     params:
         id: 30702
-    duration: 300
 
   - name: stadium
+    <<: *defaults
     params:
         id: 30703
-    duration: 300
 
   - name: wedding
+    <<: *defaults
     params:
         id: 30705
-    duration: 300
 
   - name: retail
+    <<: *defaults
     params:
         id: 30706
-    duration: 300
+
+  - name: jumbli
+    swf: "http://flash.locamoda.com/jumbli/default/jumbli_demo.swf"
+    duration: 180
 
