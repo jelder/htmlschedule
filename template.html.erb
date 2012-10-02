@@ -3,9 +3,9 @@
 <title><%= @slot["name"] %> for <%= @slot["duration"] %> seconds</title>
 <meta http-equiv="refresh" content="<%= @slot["duration"] %>;url=<%= @next_slot["name"] %>.html">
 </head>
-<body style="margin:0;padding:0">
+<body style="margin:0;padding:0;overflow:none">
 <div width="100%">
-<iframe width="100%" height="100%" src="<%= @slot["url"] %>"></iframe>
+<iframe width="100%" height="100%" src="<%= @slot["url"] %>" scrolling="no"></iframe>
 </div>
 </body>
 </html>
