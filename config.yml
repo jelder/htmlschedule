@@ -1,32 +1,14 @@
-# Simple HTML schedule generator
-template: "template.html.erb"
-params: &defaults
-    swf: "http://flash.locamoda.com/fuji/wiffiti/wiffiti-4.7.2.swf"
-    show_title: 0
-    duration: 30
-
 schedule:
-  - name: restaurant
-    <<: *defaults
-    params:
-        id: 30702
 
-  - name: stadium
-    <<: *defaults
-    params:
-        id: 30703
+  - name: geckboard
+    url: "https://boundless.geckoboard.com/dashboard/EA78B0D7BEC6D0DF/"
+    duration: 10
 
-  - name: wedding
-    <<: *defaults
-    params:
-        id: 30705
+  - name: pingdom
+    url: "http://stats.pingdom.com/2vgn028rdky6"
+    duration: 10
 
-  - name: retail
-    <<: *defaults
-    params:
-        id: 30706
-
-  - name: jumbli
-    swf: "http://flash.locamoda.com/jumbli/default/jumbli_demo.swf"
-    duration: 180
+  - name: newrelic
+    url: "https://rpm.newrelic.com/public/charts/lpVPUGjY4Wh"
+    duration: 10
 

@@ -1,0 +1,14 @@
+schedule:
+
+  - name: geckboard
+    url: "https://boundless.geckoboard.com/dashboard/..."
+    duration: 10
+
+  - name: pingdom
+    url: "http://stats.pingdom.com/..."
+    duration: 10
+
+  - name: newrelic
+    url: "https://rpm.newrelic.com/public/charts/..."
+    duration: 10
+
